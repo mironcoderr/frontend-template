@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    a,
+    sup,
+    button,
+    form,
+    label,
+    span { @apply inline-block; font-style: initial; }
+
+    input,
+    select,
+    textarea { @apply placeholder:text-sm focus-within:outline-0 bg-transparent text-sm font-medium text-secondary placeholder:text-slate-500}
+
+    h1, 
+    h2, 
+    h3, 
+    h4, 
+    h5, 
+    h6 { @apply text-heading }
+
+    body { @apply text-paragraph }
+}
+
+@layer components {
+    /*===============================
+            LAYOUTS PART START        
+    ================================*/
+    .container { @apply max-w-7xl mx-auto px-3 }
+    .row { @apply flex flex-wrap -m-3 }
+    .col-1 { @apply w-[8.33333333333%] p-3 }
+    .col-2 { @apply w-[16.6666666667%] p-3 }
+    .col-3 { @apply w-1/4 p-3 }
+    .col-4 { @apply w-[33.3333333333%] p-3 }
+    .col-5 { @apply w-[41.6666666667%] p-3 }
+    .col-6 { @apply w-1/2 p-3 }
+    .col-7 { @apply w-[58.3333333333%] p-3 }
+    .col-8 { @apply w-[66.6666666667%] p-3 }
+    .col-9 { @apply w-3/4 p-3 }
+    .col-10 { @apply w-[83.3333333333%] p-3 }
+    .col-11 { @apply w-[91.6666666667%] p-3 }
+    .col-12 { @apply w-full p-3 }
+    /*===============================
+            LAYOUTS PART START        
+    ================================*/
+
+    .custom-checkbox { --checkbox-size: 16px; }
+    .custom-checkbox { @apply cursor-pointer appearance-none relative inline-flex isolate }
+    .custom-checkbox::before { @apply content-[''] w-[var(--checkbox-size)] h-[var(--checkbox-size)] rounded inline-block bg-gray-200 transition-all duration-300 }
+    .custom-checkbox::after { @apply content-['✓'] absolute w-[var(--checkbox-size)] h-[var(--checkbox-size)] leading-[var(--checkbox-size)] text-center text-xs inset-0 rounded bg-transparent opacity-0 transition-all duration-300 }
+    .custom-checkbox:checked { @apply before:border-primary after:bg-primary after:text-white after:opacity-100 }
+
+    /* THIN SCROLL BAR */
+    .thin-scroll-bar { @apply overflow-y-auto transition-all duration-300 }
+    .thin-scroll-bar:hover::-webkit-scrollbar-thumb { @apply bg-slate-500 }
+    .thin-scroll-bar::-webkit-scrollbar { @apply w-[3px] }
+    .thin-scroll-bar::-webkit-scrollbar { @apply rounded-2xl bg-transparent }
+
+    .btn-animate { @apply hover:shadow-lg transition ease-in-out delay-150 hover:-translate-y-0.5 hover:scale-105 duration-300 }
+}
